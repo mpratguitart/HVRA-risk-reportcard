@@ -12,7 +12,7 @@ params = list(
   landscape_name = landscape_name, 
   hvra_vector_fname = here::here("demo-data", glue::glue("{landscape_name}_{hvra_name}_footprint.gpkg")),
   hvra_name = "canada-lynx",
-  flp_fname = glue::glue("s3://vp-sci-grp/prototypes/reportcard/interim/landscapes/{landscape_name}/flp.tif"),
+  flp_fname = glue::glue("s3://vp-sci-grp/prototypes/reportcard/interim/landscapes/{landscape_name}/flp.tif"), #### ERROR below for not able to access AWS
   outyear_bp_fname = glue::glue("s3://vp-sci-grp/prototypes/reportcard/interim/landscapes/{landscape_name}/outyear_burn_probability.tif"),
   aoi_fname = here::here("demo-data", glue::glue("{landscape_name}_aoi.gpkg")),
   rf = rf.values
@@ -24,4 +24,10 @@ rmarkdown::render(
   params = params, 
   output_file = output_local_fname
 )
+
+##getting error, linked to the AWS layer call above - [rast] file does not exist: /vsis3/vp-sci-grp/prototypes/reportcard/interim/landscapes/pike/flp.tif
+
+
+
+
 #tictoc::toc()
